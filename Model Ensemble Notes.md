@@ -69,5 +69,26 @@ y_submission = clf.predict(stack_test)
 - Model selection
 
 ## 3. Bagging
-
+- Bagging-Boostrap aggregating, an ensemble meta-algorithm.
+- Reduce variance and helps to avoid overfitting
+- The idea:
+     + Creat N boostrap samples {S_1,...,S_N} of S as follows:
+         + For each S_i, randomly draw |S| examples from S with replacement
+     + For each i = 1,...,N:
+         + h_i = Learn(S_i)
+     + Output H=<{h_1,...,h_n}, MajorityVote>
 ## 4. Boosting
+- Key differences with respect to bagging:
+     + Bagging: 
+         Each individual classifiers is independent
+     + Boosting: 
+         1. Successive classifiers depend on their predecessors
+         2. Place more weight on "hard" examples(i.e., instances that were misclassified on previous iterations)
+- The idea:
+     1. Equal weights are assigned to each training instance at first round (1/N for round 1)
+     2. After C_i is learned, the weights are adjusted to allow the subsequent classifier C_i+1 to "pay more attention" to data that were miscalssified by C_i
+     3. Final boosted classifier C* combines the votes of each individual classifier
+- Adaboost (Adaptive Boost)
+     + 
+    
+    
