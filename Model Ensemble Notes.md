@@ -29,12 +29,12 @@ Sorted by SP
 #   n_fold : number of folds
 kf = KFold(n_fold, random_state=0)
 # store predictions of left-out training data at each k-fold training procedure
-stack_train = np.zeros(X_train.shape[0], len(clfs))
+stack_train = np.zeros((X_train.shape[0], len(clfs)))
 # store predictions of test data of each base models
-stack_test = np.zeros(X_test.shape[0], len(clfs))
+stack_test = np.zeros((X_test.shape[0], len(clfs)))
 for i,clf in enumerate(clfs):
     # store predictions of test data at each k-fold training procedure
-    kf_prd_i = np.zeros(X_test.shape[0], n_fold) 
+    kf_prd_i = np.zeros((X_test.shape[0], n_fold)) 
     for j,(train_idx, test_idx) in enumerate(kf.split(X_train)):
         kf_X_train = X_train[train_idx]
         kf_y_train = y_train[train_idx]
